@@ -1,0 +1,22 @@
+Sub eliminar_objetos_ocultos()
+
+'Por: Álvaro Andrés Peralta Parra
+'Finalidad: Eliminar objetos ocultos en hoja activa de Excel 
+
+    If MsgBox("¡Tienes un total de " & ActiveSheet.Shapes.Count & " objetos en tu hoja, por eso está lenta! ¿Quieres eliminarlos? Demorará pero saldrá un aviso cuando se termine de hacer el proceso.", vbInformation + vbYesNo, "CANTIDAD DE OBJETOS") = vbYes Then
+
+        Application.ScreenUpdating = False
+
+        For Each Obj In ActiveSheet.Shapes
+
+            Obj.Delete
+
+        Next 
+
+        Application.ScreenUpdating = True 
+
+        MsgBox "Trabajo culminado", vbInformation
+
+    End If 
+
+End Sub
