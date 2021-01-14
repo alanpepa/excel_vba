@@ -1,7 +1,7 @@
 Sub desproteger_contenido()
 
-'Por: Álvaro Andrés Peralta Parra
-'Finalidad: Desproteger contenido de Excel
+'Por: Álvaro Andrés Peralta Parra.
+'Finalidad: Desproteger contenido de Excel.
 
 Dim I As Integer, j As Integer, k As Integer, l As Integer, m As Integer, N As Integer
 
