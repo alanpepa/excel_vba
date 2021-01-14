@@ -1,7 +1,7 @@
 Sub desproteger_libro_metodo1()
 
-'Por: Álvaro Andrés Peralta Parra
-'Finalidad: Desproteger libro de Excel, este es el método 1
+'Por: Álvaro Andrés Peralta Parra.
+'Finalidad: Desproteger libro de Excel, este es el método 1.
 
 If MsgBox("¿Realmente desea desproteger el libro actual?", vbCritical + vbYesNo + vbDefaultButton2, "desproteger_libro_metodo1") = vbYes Then
 
