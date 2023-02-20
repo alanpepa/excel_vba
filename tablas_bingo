@@ -1,0 +1,54 @@
+Sub generaBingo()
+
+'Generación de 6 tablas de bingo.
+
+'En cada columna, de cada tabla, hay cinco números sin repetición.
+
+'La columna 1 contiene números entre 1 y 15
+'La columna 2 contiene números entre 16 y 30
+'La columna 3 contiene números entre 30 y 45
+'La columna 4 contiene números entre 46 y 60
+'La columna 5 contiene números entre 61 y 75
+'En la columna 1, 2, 3, 4 y 5 de cada tabla existen un conjunto de 5 números que es diferente en cada tabla.
+
+Dim i As Byte, j As Byte, k As Byte, n As Byte, m As Byte, p As Byte, num As Byte
+Dim esta As Boolean
+Dim linearepe As Boolean
+Dim A(5, 5, 6) As Long
+B = Array(2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47) 'quince primos
+Randomize
+Do
+  linearepe = False
+
+  For j = 1 To 5 'número de columna B=1 I=2 N=3 G=4 O=5
+    For k = 1 To 6 'número de tablas
+      A(0, j, k) = 1
+      For i = 1 To 5 'número de fila
+        A(i, j, k) = (Int(Rnd() * 15) + 1) + (j - 1) * 15
+        For n = 2 To i
+          Do
+            num = (Int(Rnd() * 15) + 1) + (j - 1) * 15
+            esta = False
+            For m = 1 To n - 1
+              If num = A(m, j, k) Then esta = True: Exit For
+            Next m
+          Loop While esta
+          A(i, j, k) = num
+        Next n
+        Cells(k * 7 - 5 + i, j + 1) = A(i, j, k)
+        'Producto de números primos
+        A(0, j, k) = A(0, j, k) * B(A(i, j, k) - 1 - (j - 1) * 15)
+      Next i
+      'Cells(k * 7 - 5, j + 1) = A(0, j, k) 'Imprime el producto de primos
+    Next k
+  Next j
+  For j = 1 To 5 'para cada columna
+    For k = 1 To 5 'analizamos cada tabla con las siguientes, por eso son 5
+      For p = k + 1 To 6
+        If A(0, j, k) = A(0, j, p) Then linearepe = True
+      Next p
+    Next k
+  Next j
+Loop While linearepe
+
+End Sub
