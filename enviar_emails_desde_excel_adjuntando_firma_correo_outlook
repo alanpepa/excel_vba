@@ -46,9 +46,9 @@ For Each CeldaCorreo In Range("B11:B13")
     Saldo = Format(CeldaCorreo.Offset(0, 1).Value, "$#,##0")
     FechaVencimiento = Format(CeldaCorreo.Offset(0, 2).Value, "dd/mmm/yyyy")
     strBody = "<FONT color='blue'>" & _
-    "<P>Este correo es enviado desde un archivo del canal EXCELeINFO</P></FONT>" & _
-    "<P><B>Suscríbete para recibir los mejores videos de EXCELeINFO</B></P>" & _
-    "<a href='https://www.youtube.com/c/SergioAlejandroCampos' target='_BLANK'>" & _
+    "<P>Este correo es enviado desde un archivo de Álvaro Andrés Peralta Parra</P></FONT>" & _
+    "<P><B>Álvaro Andrés Peralta Parra</B></P>" & _
+    "<a href='https://www.linkedin.com/in/alanpepa92/' target='_BLANK'>" & _
     "<img src='C:\t\MOS expert.PNG' eight='30%'></a>"
         
 
@@ -68,7 +68,7 @@ For Each CeldaCorreo In Range("B11:B13")
         .To = Correo
         .Subject = Asunto
         '.Body = Msg
-        .Attachments.Add "C:\Users\Sergio Campos\Dropbox\Personal\EXCELeINFO\Pendientes\Funcion IMAGEN - EXCELeINFO.xlsx"
+        .Attachments.Add "C:\Users\Álvaro Peralta\Dropbox\Personal\\Pendientes\Funcion IMAGEN.xlsx"
         .HTMLBody = Msg & strBody & .HTMLBody
         .Send
 
