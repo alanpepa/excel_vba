@@ -1,0 +1,78 @@
+Sub EnviarEmail()
+
+'Procedimiento en Excel para enviar emails masivos desde una cuenta de correo configurada en Microsoft Outlook.
+'La cuenta configurada en Outlook puede ser de cualquier servicio de correo: Outook, Hotmail, Yahoo, Gmail, Office 365 o empresarial.
+
+'En este procedimiento se puede:
+'Incluir imágenes.
+'Adjuntar archivos.
+'Incluir la Firma de correo configurar en Outlook.
+
+'Antes se debe de contar con:
+'☑ Microsoft Outlook con mínimo una cuenta configurada.
+'☑ Haber habilitado la Referencia Microsoft Outlook 16.0 Object Library (el número puede cambiar depende tu versión de Office).
+'☑ Recomendable tener una Firma de correo.
+
+
+' Declaramos variables
+
+Dim OutlookApp As Outlook.Application
+Dim MItem As Outlook.MailItem
+Dim CeldaCorreo As Range
+Dim Asunto As String
+Dim Correo As String
+Dim Destinatario As String
+Dim Saldo As String
+Dim Msg As String
+
+Set OutlookApp = New Outlook.Application
+
+'Recorremos la columna EMAIL
+
+For Each CeldaCorreo In Range("B11:B13")
+
+    'Asignamos valor a las variables
+
+    
+    If CeldaCorreo.EntireRow.Hidden = True Then
+    
+    Else
+    
+    Asunto = "Saldo vencido"
+    Destinatario = CeldaCorreo.Offset(0, -1).Value
+    Correo = CeldaCorreo.Value
+    Saldo = Format(CeldaCorreo.Offset(0, 1).Value, "$#,##0")
+    FechaVencimiento = Format(CeldaCorreo.Offset(0, 2).Value, "dd/mmm/yyyy")
+    strBody = "<FONT color='blue'>" & _
+    "<P>Este correo es enviado desde un archivo del canal EXCELeINFO</P></FONT>" & _
+    "<P><B>Suscríbete para recibir los mejores videos de EXCELeINFO</B></P>" & _
+    "<a href='https://www.youtube.com/c/SergioAlejandroCampos' target='_BLANK'>" & _
+    "<img src='C:\t\MOS expert.PNG' eight='30%'></a>"
+        
+
+    'Cuerpo del mensaje
+
+    Msg = "Apreciable " & Destinatario & vbNewLine & vbNewLine
+    Msg = Msg & "Queremos informarle que su fecha de pago venció el día "
+    Msg = Msg & FechaVencimiento & "." & vbNewLine & vbNewLine
+    Msg = Msg & "El saldo que debe liquidar es "
+    Msg = Msg & Saldo & vbNewLine & vbNewLine
+    Msg = Msg & "Atentamente:" & vbNewLine
+    Msg = Msg & "Tarjetas de crédito."
+
+    Set MItem = OutlookApp.CreateItem(olMailItem)
+    With MItem
+        .Display
+        .To = Correo
+        .Subject = Asunto
+        '.Body = Msg
+        .Attachments.Add "C:\Users\Sergio Campos\Dropbox\Personal\EXCELeINFO\Pendientes\Funcion IMAGEN - EXCELeINFO.xlsx"
+        .HTMLBody = Msg & strBody & .HTMLBody
+        .Send
+
+    End With
+
+End If
+Next
+
+End Sub
