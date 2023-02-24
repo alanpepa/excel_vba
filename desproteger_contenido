@@ -1,0 +1,46 @@
+Sub desproteger_contenido()
+
+'Por: Álvaro Andrés Peralta Parra.
+'Finalidad: Desproteger contenido de Excel.
+
+Dim I As Integer, j As Integer, k As Integer, l As Integer, m As Integer, N As Integer
+
+On Error Resume Next
+
+For I = 65 To 66
+For j = 65 To 66
+For k = 65 To 66
+For l = 65 To 66
+For m = 65 To 66
+For i1 = 65 To 66
+For i2 = 65 To 66
+For i3 = 65 To 66
+For i4 = 65 To 66
+For i5 = 65 To 66
+For i6 = 65 To 66
+For N = 32 To 126
+
+	ActiveSheet.Unprotect Chr(I) & Chr(j) & Chr(k) & Chr(l) & Chr(m) & Chr(i1) & Chr(i2) & Chr(i3) & Chr(i4) & Chr(i5) & Chr(i6) & Chr(N)
+
+	If ActiveSheet.ProtectContents = False Then
+
+		MsgBox "Ok"
+
+		Exit Sub
+
+	End If
+  
+Next
+Next
+Next
+Next
+Next
+Next
+Next
+Next
+Next
+Next
+Next
+Next
+
+End Sub
