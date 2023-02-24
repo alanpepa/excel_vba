@@ -1,5 +1,7 @@
 Sub QuitaRegistro()
 
+'Por: Álvaro Andrés Peralta Parra.
+
 'Elimina registro de la hoja cuando cumple condición y lo guarda en otra hoja
 
 'Subrutina Código VBA para trasladar registro a otra hoja en función de un criterio, por ejemplo, que esté ‘pagado’, y eliminar ese registro de la tabla principal (máster).
