@@ -1,5 +1,7 @@
 Sub generaBingo()
 
+'Por: Álvaro Andrés Peralta Parra.
+
 'Generación de 6 tablas de bingo.
 
 'En cada columna, de cada tabla, hay cinco números sin repetición.
