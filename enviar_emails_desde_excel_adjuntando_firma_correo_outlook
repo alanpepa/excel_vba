@@ -1,5 +1,7 @@
 Sub EnviarEmail()
 
+'Por: Álvaro Andrés Peralta Parra.
+
 'Procedimiento en Excel para enviar emails masivos desde una cuenta de correo configurada en Microsoft Outlook.
 'La cuenta configurada en Outlook puede ser de cualquier servicio de correo: Outook, Hotmail, Yahoo, Gmail, Office 365 o empresarial.
 
