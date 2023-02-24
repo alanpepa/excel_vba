@@ -1,0 +1,25 @@
+Private Sub CommandButton1_Click()Dim Fila As Integer
+
+'Por: Álvaro Andrés Peralta Parra.
+
+'Macro borra registros en blanco de una hoja de pedido y mantiene los registros realizados por el cliente
+
+'Macro que consolida el pedido realizado por el usuario/a, y limpia los registros de la hoja que quedan vacíos debajo, para poder imprimir o guardar con otros sencillos botones de Macro, si se requiere.
+
+Dim Contador As Integer
+Fila = 18
+Contador = 66
+
+Do While Contador > 0
+	If Cells(Fila, 1).Value = «» Then
+		Rows(Fila).Delete
+		Rows(Fila).Delete
+	Else
+		Fila = Fila + 2
+	End If
+	
+Contador = Contador – 1
+
+Loop
+
+End Sub
